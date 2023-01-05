@@ -1,4 +1,4 @@
-![Billing Rate](billingrate.png)
+![Billing Rate](billingrate1.png)
 
 # Billing Rate
 
