@@ -75,11 +75,12 @@ struct ContentView: View {
                     .padding(.top, 20)
                 }
                 
-                Slider(value: $hoursWorked, in: 0...100, step: 5)
                 Text(String(format: "Hours worked: %.0f", hoursWorked))
                     .padding()
                     .font(.body)
                     .opacity(0.6)
+                Slider(value: $hoursWorked, in: 0...100, step: 5)
+              
                   
                 
                 Spacer()
