@@ -35,9 +35,10 @@ struct ContentView: View {
     
     @State private var billRate: String = ""
     @FocusState private var billRateFocused: Bool
+    @State private var hoursWorked: Double = 40
     
     private var weeklyRate: Double {
-        (Double(billRate) ?? 0.0) * 40
+        (Double(billRate) ?? 0.0) * hoursWorked
     }
     
     private var numberOfWeeks: Int {
@@ -47,11 +48,11 @@ struct ContentView: View {
     }
     
     private var monthlyRate: Double {
-        return (Double(billRate) ?? 0.0) * 40 * Double(numberOfWeeks)
+        return (Double(billRate) ?? 0.0) * hoursWorked * Double(numberOfWeeks)
     }
     
     private var yearlyRate: Double {
-        (Double(billRate) ?? 0.0) * 40 * 52
+        (Double(billRate) ?? 0.0) * hoursWorked * 52
     }
     
     
@@ -73,6 +74,13 @@ struct ContentView: View {
                         .background(.black)
                     .padding(.top, 20)
                 }
+                
+                Slider(value: $hoursWorked, in: 0...100, step: 5)
+                Text(String(format: "Hours worked: %.0f", hoursWorked))
+                    .padding()
+                    .font(.body)
+                    .opacity(0.6)
+                  
                 
                 Spacer()
                 
